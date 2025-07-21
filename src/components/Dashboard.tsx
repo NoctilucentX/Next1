@@ -28,7 +28,7 @@ export default function Dashboard() {
         return <StudentInterface />;
       default:
         return (
-          <div className="min-h-screen bg-white p-6">
+          <div className="min-h-screen bg- p-6">
             <div className="relative z-10 max-w-6xl mx-auto">
               {/* Header */}
               <div className="flex justify-between items-center mb-12">
@@ -37,18 +37,18 @@ export default function Dashboard() {
                     <span className="text-2xl">🎵</span>
                   </div>
                   <div>
-                    <h1 className="text-4xl font-bold text-gray-800 mb-1">
+                    <h1 className="text-4xl font-bold text-white-800 mb-1">
                       Studio Management Platform
                     </h1>
-                    <p className="text-gray-600 text-lg font-medium">
+                    <p className="text-white-600 text-lg font-medium">
                       Your Studio Management Platform
                     </p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="text-right">
-                    <p className="text-gray-500 text-sm">Welcome back,</p>
-                    <p className="text-gray-800 font-semibold">{user?.email}</p>
+                    <p className="text-white-500 text-sm">Welcome back,</p>
+                    <p className="text-white-800 font-semibold">{user?.email}</p>
                   </div>
                   <Button 
                     variant="outline" 
@@ -62,8 +62,8 @@ export default function Dashboard() {
               
               {/* Role Selection Cards */}
               <div className="mb-8">
-                <h2 className="text-2xl font-bold text-gray-800 mb-2 text-center">Choose Your Role</h2>
-                <p className="text-gray-600 text-center mb-8">Select the interface you'd like to access</p>
+                <h2 className="text-2xl font-bold text-white-800 mb-2 text-center">Choose Your Role</h2>
+                <p className="text-white-600 text-center mb-8">Select the interface you'd like to access</p>
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -73,8 +73,8 @@ export default function Dashboard() {
                   onClick={() => handleRoleSelect('admin')}
                 >
                   <CardHeader className="text-center pb-4">
-                    <div className="mx-auto mb-4 w-16 h-16 rounded-full bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <span className="text-3xl">👑</span>
+                    <div className="mx-auto mb-4 w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-rose-purple flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <span className="text-3xl">👥</span>
                     </div>
                     <CardTitle className="text-2xl font-bold text-white mb-2">
                       Administrator
@@ -116,8 +116,8 @@ export default function Dashboard() {
                   onClick={() => handleRoleSelect('instructor')}
                 >
                   <CardHeader className="text-center pb-4">
-                    <div className="mx-auto mb-4 w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <span className="text-3xl">🎼</span>
+                    <div className="mx-auto mb-4 w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-rose-indigo flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <span className="text-3xl">👥</span>
                     </div>
                     <CardTitle className="text-2xl font-bold text-white mb-2">
                       Instructor
@@ -155,7 +155,7 @@ export default function Dashboard() {
                   onClick={() => handleRoleSelect('student')}
                 >
                   <CardHeader className="text-center pb-4">
-                    <div className="mx-auto mb-4 w-16 h-16 rounded-full bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <div className="mx-auto mb-4 w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-rose-indigo flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                       <span className="text-3xl">🎶</span>
                     </div>
                     <CardTitle className="text-2xl font-bold text-white mb-2">
@@ -214,7 +214,7 @@ export default function Dashboard() {
             onClick={() => setSelectedRole(null)}
             className="text-purple-600 hover:text-purple-700 hover:bg-purple-50 transition-all duration-300"
           >
-            ← 🏠 Back to Dashboard
+            ← Back to Dashboard
           </Button>
         </div>
       )}
