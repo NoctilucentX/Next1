@@ -24,10 +24,10 @@ export default function AdminInterface() {
 
   const addStudent = () => {
     if (newStudent.name && newStudent.email && newStudent.instrument) {
-      setStudents([...students, {
-        id: students.length + 1,
-        ...newStudent,
-        status: 'Active'
+      setStudents([...students, { 
+        id: students.length + 1, 
+        ...newStudent, 
+        status: 'Active' 
       }]);
       setNewStudent({ name: '', email: '', instrument: '' });
     }
@@ -35,187 +35,235 @@ export default function AdminInterface() {
 
   const addInstructor = () => {
     if (newInstructor.name && newInstructor.specialization && newInstructor.experience) {
-      setInstructors([...instructors, {
-        id: instructors.length + 1,
-        ...newInstructor,
-        status: 'Active'
+      setInstructors([...instructors, { 
+        id: instructors.length + 1, 
+        ...newInstructor, 
+        status: 'Active' 
       }]);
       setNewInstructor({ name: '', specialization: '', experience: '' });
     }
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
-      <div className="max-w-6xl mx-auto">
-        <h1 className="text-3xl font-bold mb-8">Administrator Dashboard</h1>
-
+    <div className="min-h-screen musical-bg p-6">
+      <div className="musical-notes"></div>
+      
+      <div className="relative z-10 max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="flex items-center mb-8">
+          <div className="w-12 h-12 rounded-full bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center mr-4">
+            <span className="text-2xl">👑</span>
+          </div>
+          <div>
+            <h1 className="text-4xl font-bold music-text-gradient">Administrator Dashboard</h1>
+            <p className="text-purple-200 text-lg">Complete system management and control</p>
+          </div>
+        </div>
+        
         <Tabs defaultValue="students" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-5">
-            <TabsTrigger value="students">Students</TabsTrigger>
-            <TabsTrigger value="instructors">Instructors</TabsTrigger>
-            <TabsTrigger value="scheduling">Scheduling</TabsTrigger>
-            <TabsTrigger value="resources">Resources</TabsTrigger>
-            <TabsTrigger value="payments">Payments</TabsTrigger>
+          <TabsList className="music-tabs">
+            <TabsTrigger value="students" className="music-tab-trigger">🎓 Students</TabsTrigger>
+            <TabsTrigger value="instructors" className="music-tab-trigger">👨‍🏫 Instructors</TabsTrigger>
+            <TabsTrigger value="scheduling" className="music-tab-trigger">📅 Scheduling</TabsTrigger>
+            <TabsTrigger value="resources" className="music-tab-trigger">🏠 Resources</TabsTrigger>
+            <TabsTrigger value="payments" className="music-tab-trigger">💰 Payments</TabsTrigger>
           </TabsList>
 
           <TabsContent value="students">
-            <Card>
+            <Card className="music-card border-0 shadow-2xl">
               <CardHeader className="flex flex-row items-center justify-between">
-                <CardTitle>Student Registration & Enrollment</CardTitle>
+                <div className="flex items-center space-x-3">
+                  <span className="text-2xl">🎓</span>
+                  <CardTitle className="text-2xl text-white">Student Registration & Enrollment</CardTitle>
+                </div>
                 <Dialog>
                   <DialogTrigger asChild>
-                    <Button>Add Student</Button>
+                    <Button className="music-button">✨ Add Student</Button>
                   </DialogTrigger>
-                  <DialogContent>
+                  <DialogContent className="music-card border-purple-500/30">
                     <DialogHeader>
-                      <DialogTitle>Add New Student</DialogTitle>
+                      <DialogTitle className="text-white text-xl">Add New Student</DialogTitle>
                     </DialogHeader>
                     <div className="space-y-4">
                       <Input
                         placeholder="Full Name"
                         value={newStudent.name}
                         onChange={(e) => setNewStudent({...newStudent, name: e.target.value})}
+                        className="music-input text-white"
                       />
                       <Input
-                        placeholder="Email"
+                        placeholder="Email Address"
                         type="email"
                         value={newStudent.email}
                         onChange={(e) => setNewStudent({...newStudent, email: e.target.value})}
+                        className="music-input text-white"
                       />
                       <Input
-                        placeholder="Instrument"
+                        placeholder="Preferred Instrument"
                         value={newStudent.instrument}
                         onChange={(e) => setNewStudent({...newStudent, instrument: e.target.value})}
+                        className="music-input text-white"
                       />
-                      <Button onClick={addStudent} className="w-full">
-                        Add Student
+                      <Button onClick={addStudent} className="music-button w-full">
+                        🎵 Add Student
                       </Button>
                     </div>
                   </DialogContent>
                 </Dialog>
               </CardHeader>
               <CardContent>
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead>Name</TableHead>
-                      <TableHead>Email</TableHead>
-                      <TableHead>Instrument</TableHead>
-                      <TableHead>Status</TableHead>
-                      <TableHead>Actions</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {students.map((student) => (
-                      <TableRow key={student.id}>
-                        <TableCell>{student.name}</TableCell>
-                        <TableCell>{student.email}</TableCell>
-                        <TableCell>{student.instrument}</TableCell>
-                        <TableCell>{student.status}</TableCell>
-                        <TableCell>
-                          <Button variant="outline" size="sm">
-                            Edit
-                          </Button>
-                        </TableCell>
+                <div className="music-table">
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead className="music-table th">Name</TableHead>
+                        <TableHead className="music-table th">Email</TableHead>
+                        <TableHead className="music-table th">Instrument</TableHead>
+                        <TableHead className="music-table th">Status</TableHead>
+                        <TableHead className="music-table th">Actions</TableHead>
                       </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
+                    </TableHeader>
+                    <TableBody className="music-table tbody">
+                      {students.map((student) => (
+                        <TableRow key={student.id} className="music-table tbody tr">
+                          <TableCell className="text-white font-medium">{student.name}</TableCell>
+                          <TableCell className="text-purple-200">{student.email}</TableCell>
+                          <TableCell className="text-purple-200">{student.instrument}</TableCell>
+                          <TableCell>
+                            <span className="status-active">{student.status}</span>
+                          </TableCell>
+                          <TableCell>
+                            <Button variant="outline" size="sm" className="border-purple-500/50 text-purple-200 hover:text-white">
+                              ✏️ Edit
+                            </Button>
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </div>
               </CardContent>
             </Card>
           </TabsContent>
 
           <TabsContent value="instructors">
-            <Card>
+            <Card className="music-card border-0 shadow-2xl">
               <CardHeader className="flex flex-row items-center justify-between">
-                <CardTitle>Instructor Profiles</CardTitle>
+                <div className="flex items-center space-x-3">
+                  <span className="text-2xl">👨‍🏫</span>
+                  <CardTitle className="text-2xl text-white">Instructor Profiles</CardTitle>
+                </div>
                 <Dialog>
                   <DialogTrigger asChild>
-                    <Button>Add Instructor</Button>
+                    <Button className="music-button">✨ Add Instructor</Button>
                   </DialogTrigger>
-                  <DialogContent>
+                  <DialogContent className="music-card border-purple-500/30">
                     <DialogHeader>
-                      <DialogTitle>Add New Instructor</DialogTitle>
+                      <DialogTitle className="text-white text-xl">Add New Instructor</DialogTitle>
                     </DialogHeader>
                     <div className="space-y-4">
                       <Input
                         placeholder="Full Name"
                         value={newInstructor.name}
                         onChange={(e) => setNewInstructor({...newInstructor, name: e.target.value})}
+                        className="music-input text-white"
                       />
                       <Input
                         placeholder="Specialization"
                         value={newInstructor.specialization}
                         onChange={(e) => setNewInstructor({...newInstructor, specialization: e.target.value})}
+                        className="music-input text-white"
                       />
                       <Input
                         placeholder="Years of Experience"
                         value={newInstructor.experience}
                         onChange={(e) => setNewInstructor({...newInstructor, experience: e.target.value})}
+                        className="music-input text-white"
                       />
-                      <Button onClick={addInstructor} className="w-full">
-                        Add Instructor
+                      <Button onClick={addInstructor} className="music-button w-full">
+                        🎼 Add Instructor
                       </Button>
                     </div>
                   </DialogContent>
                 </Dialog>
               </CardHeader>
               <CardContent>
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead>Name</TableHead>
-                      <TableHead>Specialization</TableHead>
-                      <TableHead>Experience</TableHead>
-                      <TableHead>Status</TableHead>
-                      <TableHead>Actions</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {instructors.map((instructor) => (
-                      <TableRow key={instructor.id}>
-                        <TableCell>{instructor.name}</TableCell>
-                        <TableCell>{instructor.specialization}</TableCell>
-                        <TableCell>{instructor.experience}</TableCell>
-                        <TableCell>{instructor.status}</TableCell>
-                        <TableCell>
-                          <Button variant="outline" size="sm">
-                            Edit
-                          </Button>
-                        </TableCell>
+                <div className="music-table">
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead className="music-table th">Name</TableHead>
+                        <TableHead className="music-table th">Specialization</TableHead>
+                        <TableHead className="music-table th">Experience</TableHead>
+                        <TableHead className="music-table th">Status</TableHead>
+                        <TableHead className="music-table th">Actions</TableHead>
                       </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
+                    </TableHeader>
+                    <TableBody className="music-table tbody">
+                      {instructors.map((instructor) => (
+                        <TableRow key={instructor.id} className="music-table tbody tr">
+                          <TableCell className="text-white font-medium">{instructor.name}</TableCell>
+                          <TableCell className="text-purple-200">{instructor.specialization}</TableCell>
+                          <TableCell className="text-purple-200">{instructor.experience}</TableCell>
+                          <TableCell>
+                            <span className="status-active">{instructor.status}</span>
+                          </TableCell>
+                          <TableCell>
+                            <Button variant="outline" size="sm" className="border-purple-500/50 text-purple-200 hover:text-white">
+                              ✏️ Edit
+                            </Button>
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </div>
               </CardContent>
             </Card>
           </TabsContent>
 
           <TabsContent value="scheduling">
-            <Card>
+            <Card className="music-card border-0 shadow-2xl">
               <CardHeader>
-                <CardTitle>Smart Scheduling Management</CardTitle>
+                <div className="flex items-center space-x-3">
+                  <span className="text-2xl">📅</span>
+                  <CardTitle className="text-2xl text-white">Smart Scheduling Management</CardTitle>
+                </div>
               </CardHeader>
               <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-4">
-                    <h3 className="text-lg font-semibold">Current Schedule</h3>
-                    <div className="space-y-2">
-                      <div className="p-3 border rounded">
-                        <p className="font-medium">Piano Lesson - John Doe</p>
-                        <p className="text-sm text-gray-600">Monday 10:00 AM - Dr. Sarah Wilson</p>
+                    <h3 className="text-xl font-semibold text-white flex items-center">
+                      <span className="mr-2">🗓️</span>
+                      Current Schedule
+                    </h3>
+                    <div className="space-y-3">
+                      <div className="p-4 music-card border border-purple-500/30 rounded-lg">
+                        <p className="font-medium text-white">🎹 Piano Lesson - John Doe</p>
+                        <p className="text-sm text-purple-200">Monday 10:00 AM - Dr. Sarah Wilson</p>
                       </div>
-                      <div className="p-3 border rounded">
-                        <p className="font-medium">Guitar Lesson - Jane Smith</p>
-                        <p className="text-sm text-gray-600">Tuesday 2:00 PM - Mike Johnson</p>
+                      <div className="p-4 music-card border border-purple-500/30 rounded-lg">
+                        <p className="font-medium text-white">🎸 Guitar Lesson - Jane Smith</p>
+                        <p className="text-sm text-purple-200">Tuesday 2:00 PM - Mike Johnson</p>
                       </div>
                     </div>
                   </div>
                   <div className="space-y-4">
-                    <h3 className="text-lg font-semibold">Schedule Adjustments</h3>
-                    <Button className="w-full">Auto-Schedule Lessons</Button>
-                    <Button variant="outline" className="w-full">View Calendar</Button>
-                    <Button variant="outline" className="w-full">Conflict Resolution</Button>
+                    <h3 className="text-xl font-semibold text-white flex items-center">
+                      <span className="mr-2">⚙️</span>
+                      Schedule Management
+                    </h3>
+                    <div className="space-y-3">
+                      <Button className="music-button w-full">
+                        🤖 Auto-Schedule Lessons
+                      </Button>
+                      <Button variant="outline" className="w-full border-purple-500/50 text-purple-200 hover:text-white">
+                        📆 View Calendar
+                      </Button>
+                      <Button variant="outline" className="w-full border-purple-500/50 text-purple-200 hover:text-white">
+                        ⚠️ Resolve Conflicts
+                      </Button>
+                    </div>
                   </div>
                 </div>
               </CardContent>
@@ -223,43 +271,71 @@ export default function AdminInterface() {
           </TabsContent>
 
           <TabsContent value="resources">
-            <Card>
+            <Card className="music-card border-0 shadow-2xl">
               <CardHeader>
-                <CardTitle>Resource Availability Management</CardTitle>
+                <div className="flex items-center space-x-3">
+                  <span className="text-2xl">🏠</span>
+                  <CardTitle className="text-2xl text-white">Resource Availability Management</CardTitle>
+                </div>
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <h3 className="text-lg font-semibold mb-4">Practice Rooms</h3>
-                    <div className="space-y-2">
-                      <div className="flex justify-between items-center p-3 border rounded">
-                        <span>Room A - Piano</span>
-                        <span className="text-green-600">Available</span>
+                    <h3 className="text-xl font-semibold text-white mb-4 flex items-center">
+                      <span className="mr-2">🚪</span>
+                      Practice Rooms
+                    </h3>
+                    <div className="space-y-3">
+                      <div className="flex justify-between items-center p-4 music-card border border-purple-500/30 rounded-lg">
+                        <div>
+                          <p className="font-medium text-white">🎹 Room A - Piano Studio</p>
+                          <p className="text-sm text-purple-200">Grand Piano, 2 chairs</p>
+                        </div>
+                        <span className="status-active">Available</span>
                       </div>
-                      <div className="flex justify-between items-center p-3 border rounded">
-                        <span>Room B - Guitar</span>
-                        <span className="text-red-600">In Use</span>
+                      <div className="flex justify-between items-center p-4 music-card border border-purple-500/30 rounded-lg">
+                        <div>
+                          <p className="font-medium text-white">🎸 Room B - Guitar Studio</p>
+                          <p className="text-sm text-purple-200">2 acoustic guitars, amps</p>
+                        </div>
+                        <span className="status-outstanding">In Use</span>
                       </div>
-                      <div className="flex justify-between items-center p-3 border rounded">
-                        <span>Room C - Drums</span>
-                        <span className="text-green-600">Available</span>
+                      <div className="flex justify-between items-center p-4 music-card border border-purple-500/30 rounded-lg">
+                        <div>
+                          <p className="font-medium text-white">🥁 Room C - Drums Studio</p>
+                          <p className="text-sm text-purple-200">Full drum set, soundproof</p>
+                        </div>
+                        <span className="status-active">Available</span>
                       </div>
                     </div>
                   </div>
+                  
                   <div>
-                    <h3 className="text-lg font-semibold mb-4">Instruments</h3>
-                    <div className="space-y-2">
-                      <div className="flex justify-between items-center p-3 border rounded">
-                        <span>Yamaha Piano</span>
-                        <span className="text-green-600">Available</span>
+                    <h3 className="text-xl font-semibold text-white mb-4 flex items-center">
+                      <span className="mr-2">🎼</span>
+                      Instruments
+                    </h3>
+                    <div className="space-y-3">
+                      <div className="flex justify-between items-center p-4 music-card border border-purple-500/30 rounded-lg">
+                        <div>
+                          <p className="font-medium text-white">🎹 Yamaha Grand Piano</p>
+                          <p className="text-sm text-purple-200">Room A</p>
+                        </div>
+                        <span className="status-active">Available</span>
                       </div>
-                      <div className="flex justify-between items-center p-3 border rounded">
-                        <span>Acoustic Guitar</span>
-                        <span className="text-green-600">Available</span>
+                      <div className="flex justify-between items-center p-4 music-card border border-purple-500/30 rounded-lg">
+                        <div>
+                          <p className="font-medium text-white">🎸 Martin Acoustic Guitar</p>
+                          <p className="text-sm text-purple-200">Room B</p>
+                        </div>
+                        <span className="status-active">Available</span>
                       </div>
-                      <div className="flex justify-between items-center p-3 border rounded">
-                        <span>Drum Set</span>
-                        <span className="text-yellow-600">Maintenance</span>
+                      <div className="flex justify-between items-center p-4 music-card border border-purple-500/30 rounded-lg">
+                        <div>
+                          <p className="font-medium text-white">🥁 Pearl Drum Set</p>
+                          <p className="text-sm text-purple-200">Room C</p>
+                        </div>
+                        <span className="status-pending">Maintenance</span>
                       </div>
                     </div>
                   </div>
@@ -269,35 +345,48 @@ export default function AdminInterface() {
           </TabsContent>
 
           <TabsContent value="payments">
-            <Card>
+            <Card className="music-card border-0 shadow-2xl">
               <CardHeader>
-                <CardTitle>Payment & Financial Reports</CardTitle>
+                <div className="flex items-center space-x-3">
+                  <span className="text-2xl">💰</span>
+                  <CardTitle className="text-2xl text-white">Payment & Financial Reports</CardTitle>
+                </div>
               </CardHeader>
               <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                  <Card>
-                    <CardContent className="p-4">
-                      <h3 className="font-semibold text-lg">Monthly Revenue</h3>
-                      <p className="text-2xl font-bold text-green-600">$12,500</p>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                  <Card className="music-card border border-green-500/30">
+                    <CardContent className="p-6 text-center">
+                      <div className="text-3xl mb-2">💵</div>
+                      <h3 className="font-semibold text-lg text-white">Monthly Revenue</h3>
+                      <p className="text-3xl font-bold text-green-400">$12,500</p>
+                      <p className="text-sm text-purple-200">+15% from last month</p>
                     </CardContent>
                   </Card>
-                  <Card>
-                    <CardContent className="p-4">
-                      <h3 className="font-semibold text-lg">Outstanding</h3>
-                      <p className="text-2xl font-bold text-red-600">$2,300</p>
+                  <Card className="music-card border border-red-500/30">
+                    <CardContent className="p-6 text-center">
+                      <div className="text-3xl mb-2">⚠️</div>
+                      <h3 className="font-semibold text-lg text-white">Outstanding</h3>
+                      <p className="text-3xl font-bold text-red-400">$2,300</p>
+                      <p className="text-sm text-purple-200">3 overdue accounts</p>
                     </CardContent>
                   </Card>
-                  <Card>
-                    <CardContent className="p-4">
-                      <h3 className="font-semibold text-lg">Active Students</h3>
-                      <p className="text-2xl font-bold text-blue-600">{students.length}</p>
+                  <Card className="music-card border border-blue-500/30">
+                    <CardContent className="p-6 text-center">
+                      <div className="text-3xl mb-2">👥</div>
+                      <h3 className="font-semibold text-lg text-white">Active Students</h3>
+                      <p className="text-3xl font-bold text-blue-400">{students.length}</p>
+                      <p className="text-sm text-purple-200">Currently enrolled</p>
                     </CardContent>
                   </Card>
                 </div>
                 <div className="space-y-4">
-                  <Button>Generate Monthly Report</Button>
-                  <Button variant="outline">Export Payment Data</Button>
-                  <Button variant="outline">Send Payment Reminders</Button>
+                  <Button className="music-button">📊 Generate Monthly Report</Button>
+                  <Button variant="outline" className="ml-4 border-purple-500/50 text-purple-200 hover:text-white">
+                    📤 Export Payment Data
+                  </Button>
+                  <Button variant="outline" className="ml-4 border-purple-500/50 text-purple-200 hover:text-white">
+                    📧 Send Payment Reminders
+                  </Button>
                 </div>
               </CardContent>
             </Card>

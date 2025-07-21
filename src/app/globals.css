@@ -4,58 +4,26 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 5.9% 10%;
-    --radius: 0.5rem;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-  }
-
-  .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
+    --background: 220 25% 6%;
+    --foreground: 210 40% 98%;
+    --card: 220 25% 8%;
+    --card-foreground: 210 40% 98%;
+    --popover: 220 25% 8%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 267 84% 81%;
+    --primary-foreground: 220 25% 6%;
+    --secondary: 220 25% 12%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 220 25% 12%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 220 25% 12%;
+    --accent-foreground: 210 40% 98%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 220 25% 12%;
+    --input: 220 25% 12%;
+    --ring: 267 84% 81%;
+    --radius: 0.75rem;
   }
 }
 
@@ -64,6 +32,314 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-foreground min-h-screen;
+    background-attachment: fixed;
   }
+}
+
+/* Musical Theme Styles */
+.musical-bg {
+  background: linear-gradient(135deg, #FE7213 0%, #F81CA0 50%, #4B3ED6 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.musical-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.4) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(147, 51, 234, 0.2) 0%, transparent 50%);
+  animation: musicFloat 20s ease-in-out infinite;
+}
+
+@keyframes musicFloat {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-10px) rotate(1deg); }
+  66% { transform: translateY(5px) rotate(-1deg); }
+}
+
+/* Musical Notes Animation */
+.musical-notes {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.musical-notes::before,
+.musical-notes::after {
+  content: '♪ ♫ ♪ ♫ ♪';
+  position: absolute;
+  color: rgba(139, 92, 246, 0.1);
+  font-size: 2rem;
+  animation: floatNotes 25s linear infinite;
+  white-space: nowrap;
+}
+
+.musical-notes::before {
+  top: 20%;
+  left: -100%;
+  animation-delay: 0s;
+}
+
+.musical-notes::after {
+  top: 60%;
+  left: -100%;
+  animation-delay: 12s;
+  color: rgba(168, 85, 247, 0.1);
+}
+
+@keyframes floatNotes {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100vw); }
+}
+
+/* Card Enhancements */
+.music-card {
+  background: linear-gradient(145deg, rgba(15, 23, 42, 0.8), rgba(30, 27, 75, 0.6));
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(139, 92, 246, 0.1) inset;
+  transition: all 0.3s ease;
+}
+
+.music-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(139, 92, 246, 0.3) inset;
+  border-color: rgba(139, 92, 246, 0.4);
+}
+
+/* Button Enhancements */
+.music-button {
+  background: linear-gradient(135deg, #8b5cf6, #a855f7);
+  border: none;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.music-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.music-button:hover::before {
+  left: 100%;
+}
+
+.music-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(139, 92, 246, 0.4);
+}
+
+/* Staff Lines Background */
+.staff-lines {
+  position: relative;
+}
+
+.staff-lines::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 20px,
+    rgba(139, 92, 246, 0.1) 20px,
+    rgba(139, 92, 246, 0.1) 21px
+  );
+  pointer-events: none;
+}
+
+/* Text Gradients */
+.music-text-gradient {
+  background: linear-gradient(135deg, #a855f7, #8b5cf6, #6366f1);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Rhythm Pattern */
+.rhythm-pattern {
+  position: relative;
+}
+
+.rhythm-pattern::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, 
+    #8b5cf6 0%, 
+    #a855f7 25%, 
+    #8b5cf6 50%, 
+    #a855f7 75%, 
+    #8b5cf6 100%
+  );
+  animation: rhythmPulse 2s ease-in-out infinite;
+}
+
+@keyframes rhythmPulse {
+  0%, 100% { opacity: 0.6; transform: scaleX(1); }
+  50% { opacity: 1; transform: scaleX(1.05); }
+}
+
+/* Table Enhancements */
+.music-table {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.music-table th {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(168, 85, 247, 0.2));
+  color: #a855f7;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.875rem;
+}
+
+.music-table tbody tr {
+  border-bottom: 1px solid rgba(139, 92, 246, 0.1);
+  transition: all 0.2s ease;
+}
+
+.music-table tbody tr:hover {
+  background: rgba(139, 92, 246, 0.1);
+  transform: scale(1.01);
+}
+
+/* Input Enhancements */
+.music-input {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.music-input:focus {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
+  background: rgba(15, 23, 42, 0.8);
+}
+
+/* Status Badges */
+.status-active {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.status-pending {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.status-outstanding {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* Tabs Enhancement */
+.music-tabs {
+  background: rgba(15, 23, 42, 0.4);
+  border-radius: 12px;
+  padding: 4px;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.music-tab-trigger {
+  background: transparent;
+  color: rgba(139, 92, 246, 0.7);
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.music-tab-trigger[data-state="active"] {
+  background: linear-gradient(135deg, #8b5cf6, #a855f7);
+  color: white;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+}
+
+/* Loading Animation */
+.music-loading {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(139, 92, 246, 0.3);
+  border-radius: 50%;
+  border-top-color: #8b5cf6;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* styles.css or cssglobal file */
+.logo-wrapper {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 9999px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom right, #8b5cf6, #7c3aed);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.my-custom-gradient {
+  background: linear-gradient(45deg, #fcfafa, #AB2A24);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
