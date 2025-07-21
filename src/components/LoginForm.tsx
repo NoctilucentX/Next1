@@ -38,7 +38,7 @@ export default function LoginForm() {
         <Card className="music-card border-0 shadow-2xl">
           <CardHeader className="text-center pb-2">
             {/* Logo */}
-            <div className="mx-auto mb-4 w-100 h-100 flex items-center justify-center">
+            <div className="mx-auto mb-4 w-80 h-80 flex items-center justify-center">
               <img 
                 src="/logo.png" 
                 alt="Sernan's Music Clinic Logo" 
@@ -73,7 +73,7 @@ export default function LoginForm() {
                     className="music-input h-12 pl-4 text-white placeholder:text-purple-300"
                   />
                   <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
-                    <span className="text-purple-400">📧</span>
+                    <span className="text-purple-400"></span>
                   </div>
                 </div>
                 
@@ -87,7 +87,7 @@ export default function LoginForm() {
                     className="music-input h-12 pl-4 text-white placeholder:text-purple-300"
                   />
                   <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
-                    <span className="text-purple-400">🔒</span>
+                    <span className="text-purple-400"></span>
                   </div>
                 </div>
               </div>

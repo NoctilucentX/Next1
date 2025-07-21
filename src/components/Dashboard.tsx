@@ -28,9 +28,7 @@ export default function Dashboard() {
         return <StudentInterface />;
       default:
         return (
-          <div className="min-h-screen musical-bg p-6">
-            <div className="musical-notes"></div>
-            
+          <div className="min-h-screen bg-white p-6">
             <div className="relative z-10 max-w-6xl mx-auto">
               {/* Header */}
               <div className="flex justify-between items-center mb-12">
@@ -39,33 +37,33 @@ export default function Dashboard() {
                     <span className="text-2xl">🎵</span>
                   </div>
                   <div>
-                    <h1 className="text-4xl font-bold music-text-gradient">
-                      Sernan's Music Clinic
+                    <h1 className="text-4xl font-bold text-gray-800 mb-1">
+                      Studio Management Platform
                     </h1>
-                    <p className="text-purple-200 text-lg font-medium">
-                      Harmony in Learning, Excellence in Music
+                    <p className="text-gray-600 text-lg font-medium">
+                      Your Studio Management Platform
                     </p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="text-right">
-                    <p className="text-purple-200 text-sm">Welcome back,</p>
-                    <p className="text-white font-semibold">{user?.email}</p>
+                    <p className="text-gray-500 text-sm">Welcome back,</p>
+                    <p className="text-gray-800 font-semibold">{user?.email}</p>
                   </div>
                   <Button 
                     variant="outline" 
                     onClick={logout}
-                    className="music-button border-purple-500/50 text-purple-200 hover:text-white"
+                    className="border-white-500 text-purple-600 hover:bg-purple-50 hover:text-purple-700"
                   >
-                    🚪 Logout
+                    Logout
                   </Button>
                 </div>
               </div>
               
               {/* Role Selection Cards */}
               <div className="mb-8">
-                <h2 className="text-2xl font-bold text-white mb-2 text-center">Choose Your Role</h2>
-                <p className="text-purple-200 text-center mb-8">Select the interface you'd like to access</p>
+                <h2 className="text-2xl font-bold text-gray-800 mb-2 text-center">Choose Your Role</h2>
+                <p className="text-gray-600 text-center mb-8">Select the interface you'd like to access</p>
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -85,20 +83,20 @@ export default function Dashboard() {
                   </CardHeader>
                   <CardContent className="pt-2">
                     <p className="text-purple-200 mb-6 text-center font-medium">
-                      Complete system management and oversight
+                      Manage Studio
                     </p>
                     <div className="space-y-3">
                       <div className="flex items-center text-sm text-purple-100">
                         <span className="mr-3 text-green-400">🎓</span>
-                        Student Registration & Enrollment
+                         Enrollment Student
                       </div>
                       <div className="flex items-center text-sm text-purple-100">
                         <span className="mr-3 text-blue-400">👨‍🏫</span>
-                        Instructor Profile Management
+                         Profile Management
                       </div>
                       <div className="flex items-center text-sm text-purple-100">
                         <span className="mr-3 text-yellow-400">📅</span>
-                        Smart Scheduling System
+                        Smart Scheduler
                       </div>
                       <div className="flex items-center text-sm text-purple-100">
                         <span className="mr-3 text-pink-400">🏠</span>
@@ -128,7 +126,7 @@ export default function Dashboard() {
                   </CardHeader>
                   <CardContent className="pt-2">
                     <p className="text-purple-200 mb-6 text-center font-medium">
-                      Manage your students and teaching schedule
+                      Manage your students and schedule
                     </p>
                     <div className="space-y-3">
                       <div className="flex items-center text-sm text-purple-100">
@@ -167,7 +165,7 @@ export default function Dashboard() {
                   </CardHeader>
                   <CardContent className="pt-2">
                     <p className="text-purple-200 mb-6 text-center font-medium">
-                      Your personal learning journey dashboard
+                      Your personal dashboard
                     </p>
                     <div className="space-y-3">
                       <div className="flex items-center text-sm text-purple-100">
@@ -192,20 +190,16 @@ export default function Dashboard() {
               </div>
               
               {/* Decorative Musical Elements */}
-              <div className="mt-16 flex justify-center items-center space-x-8 opacity-60">
-                <span className="text-4xl animate-pulse">♪</span>
-                <span className="text-5xl animate-pulse" style={{ animationDelay: '0.5s' }}>♫</span>
-                <span className="text-4xl animate-pulse" style={{ animationDelay: '1s' }}>♪</span>
-                <span className="text-6xl animate-pulse" style={{ animationDelay: '1.5s' }}>♬</span>
-                <span className="text-4xl animate-pulse" style={{ animationDelay: '2s' }}>♪</span>
-                <span className="text-5xl animate-pulse" style={{ animationDelay: '2.5s' }}>♫</span>
-                <span className="text-4xl animate-pulse" style={{ animationDelay: '3s' }}>♪</span>
+              <div className="mt-16 flex justify-center items-center space-x-8 opacity-40">
+                <span className="text-4xl animate-pulse text-purple-400">♪</span>
+                <span className="text-5xl animate-pulse text-blue-400" style={{ animationDelay: '0.5s' }}>♫</span>
+                <span className="text-4xl animate-pulse text-pink-400" style={{ animationDelay: '1s' }}>♪</span>
+                <span className="text-6xl animate-pulse text-emerald-400" style={{ animationDelay: '1.5s' }}>♬</span>
+                <span className="text-4xl animate-pulse text-yellow-400" style={{ animationDelay: '2s' }}>♪</span>
+                <span className="text-5xl animate-pulse text-indigo-400" style={{ animationDelay: '2.5s' }}>♫</span>
+                <span className="text-4xl animate-pulse text-rose-400" style={{ animationDelay: '3s' }}>♪</span>
               </div>
             </div>
-            
-            {/* Background Gradient Orbs */}
-            <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-r from-purple-500/20 to-violet-500/20 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-3xl"></div>
           </div>
         );
     }
@@ -214,11 +208,11 @@ export default function Dashboard() {
   return (
     <div>
       {selectedRole && (
-        <div className="sticky top-0 z-50 p-4 musical-bg border-b border-purple-500/30 backdrop-blur-md">
+        <div className="sticky top-0 z-50 p-4 bg-white border-b border-gray-200 backdrop-blur-md">
           <Button 
             variant="ghost" 
             onClick={() => setSelectedRole(null)}
-            className="text-purple-200 hover:text-white hover:bg-purple-500/20 transition-all duration-300"
+            className="text-purple-600 hover:text-purple-700 hover:bg-purple-50 transition-all duration-300"
           >
             ← 🏠 Back to Dashboard
           </Button>
