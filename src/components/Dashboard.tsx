@@ -37,26 +37,26 @@ export default function Dashboard() {
                     <span className="text-2xl">🎵</span>
                   </div>
                   <div>
-                    <h1 className="text-4xl font-bold text-white-800 mb-1">
+                    <h1 className="text-3xl font-bold text-white-800 mb-1">
                       Studio Management Platform
                     </h1>
                     <p className="text-white-600 text-lg font-medium">
-                      Your Studio Management Platform
+                      <i> Sernan's Music Clinic</i>
                     </p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="text-right">
-                    <p className="text-white-500 text-sm">Welcome back,</p>
+                    <p className="text-2xl font-bold text-white-500 ">Welcome back,</p>
                     <p className="text-white-800 font-semibold">{user?.email}</p>
                   </div>
                   <Button 
                     variant="outline" 
-                    onClick={logout}
-                    className="border-white-500 text-purple-600 hover:bg-purple-50 hover:text-purple-700"
-                  >
+                     onClick={logout}
+                    className="w-32 h-10 px-4 py-2 text-sm font-semibold border-white-500 text-purple-600 hover:bg-purple-50 hover:text-purple-700">
                     Logout
-                  </Button>
+                   </Button>
+
                 </div>
               </div>
               
@@ -208,7 +208,7 @@ export default function Dashboard() {
   return (
     <div>
       {selectedRole && (
-        <div className="sticky top-0 z-50 p-4 bg-white border-b border-gray-200 backdrop-blur-md">
+        <div className="sticky top-0 z-50 p-4 bg- border-b border--0 backdrop-blur-md">
           <Button 
             variant="ghost" 
             onClick={() => setSelectedRole(null)}

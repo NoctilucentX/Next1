@@ -153,7 +153,7 @@ export default function LoginForm() {
                 className="music-button w-full h-12 text-white font-semibold text-lg rounded-lg"
               >
                 <span className="relative z-10">
-                  {isRegistering ? '🎼 Create Account' : `${roleOptions.find(r => r.value === selectedRole)?.icon} Sign In as ${roleOptions.find(r => r.value === selectedRole)?.label}`}
+                  {isRegistering ? 'Sign in' : `${roleOptions.find(r => r.value === selectedRole)?.icon} Sign In as ${roleOptions.find(r => r.value === selectedRole)?.label}`}
                 </span>
               </Button>
               
@@ -165,8 +165,8 @@ export default function LoginForm() {
                   onClick={() => setIsRegistering(!isRegistering)}
                 >
                   {isRegistering 
-                    ? '🎶 Already have an account? Sign In' 
-                    : '🎵 Need an account? Register'
+                    ? '🎶' 
+                    : '🎵'
                   }
                 </Button>
               </div>

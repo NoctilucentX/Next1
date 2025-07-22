@@ -45,40 +45,40 @@ export default function AdminInterface() {
   };
 
   return (
-    <div className="min-h-screen musical-bg p-6">
+    <div className="min-h-screen bg- p-6">
       <div className="musical-notes"></div>
       
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Header */}
         <div className="flex items-center mb-8">
-          <div className="w-12 h-12 rounded-full bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center mr-4">
-            <span className="text-2xl">👑</span>
+          <div className="w-12 h-12 rounded-full bg-gradient-to-br from-gradient-500 to-gradient-600 flex items-center justify-center mr-4">
+            <span className="text-2xl"></span>
           </div>
           <div>
             <h1 className="text-4xl font-bold music-text-gradient">Administrator Dashboard</h1>
-            <p className="text-purple-200 text-lg">Complete system management and control</p>
+            <p className="text-purple-200 text-lg"><i>System management</i></p>
           </div>
         </div>
         
         <Tabs defaultValue="students" className="space-y-6">
           <TabsList className="music-tabs">
-            <TabsTrigger value="students" className="music-tab-trigger">🎓 Students</TabsTrigger>
-            <TabsTrigger value="instructors" className="music-tab-trigger">👨‍🏫 Instructors</TabsTrigger>
-            <TabsTrigger value="scheduling" className="music-tab-trigger">📅 Scheduling</TabsTrigger>
-            <TabsTrigger value="resources" className="music-tab-trigger">🏠 Resources</TabsTrigger>
-            <TabsTrigger value="payments" className="music-tab-trigger">💰 Payments</TabsTrigger>
+            <TabsTrigger value="students" className="music-tab-trigger" > STUDENTS</TabsTrigger>
+            <TabsTrigger value="instructors" className="music-tab-trigger">INSTRUCTORS</TabsTrigger>
+            <TabsTrigger value="scheduling" className="music-tab-trigger">SCHEDULE</TabsTrigger>
+            <TabsTrigger value="resources" className="music-tab-trigger">RESOURCES</TabsTrigger>
+            <TabsTrigger value="payments" className="music-tab-trigger">PAYMENT</TabsTrigger>
           </TabsList>
 
           <TabsContent value="students">
             <Card className="music-card border-0 shadow-2xl">
               <CardHeader className="flex flex-row items-center justify-between">
                 <div className="flex items-center space-x-3">
-                  <span className="text-2xl">🎓</span>
+                  <span className="text-2xl"></span>
                   <CardTitle className="text-2xl text-white">Student Registration & Enrollment</CardTitle>
                 </div>
                 <Dialog>
                   <DialogTrigger asChild>
-                    <Button className="music-button">✨ Add Student</Button>
+                    <Button className="music-button"> Add Student</Button>
                   </DialogTrigger>
                   <DialogContent className="music-card border-purple-500/30">
                     <DialogHeader>
@@ -134,7 +134,7 @@ export default function AdminInterface() {
                           </TableCell>
                           <TableCell>
                             <Button variant="outline" size="sm" className="border-purple-500/50 text-purple-200 hover:text-white">
-                              ✏️ Edit
+                              Edit
                             </Button>
                           </TableCell>
                         </TableRow>
@@ -210,7 +210,7 @@ export default function AdminInterface() {
                           </TableCell>
                           <TableCell>
                             <Button variant="outline" size="sm" className="border-purple-500/50 text-purple-200 hover:text-white">
-                              ✏️ Edit
+                               Edit
                             </Button>
                           </TableCell>
                         </TableRow>
@@ -348,7 +348,7 @@ export default function AdminInterface() {
             <Card className="music-card border-0 shadow-2xl">
               <CardHeader>
                 <div className="flex items-center space-x-3">
-                  <span className="text-2xl">💰</span>
+                  <span className="text-2xl"></span>
                   <CardTitle className="text-2xl text-white">Payment & Financial Reports</CardTitle>
                 </div>
               </CardHeader>
