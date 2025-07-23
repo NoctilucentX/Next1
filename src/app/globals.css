@@ -32,7 +32,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-foreground min-h-screen;
+    @apply bg-gradient-to-br from-slate-900 via-slate-900 to-purple-900 text-foreground min-h-screen;
     background-attachment: fixed;
   }
 }
@@ -128,23 +128,53 @@
 }
 
 /* Button Enhancements */
-.music-button {
-  background: linear-gradient(135deg, #8b5cf6, #a855f7);
-  border: none;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
+
+.logo-image {
+  max-width: 10%;;
+  max-height: 10%;
+  object-fit: contain;
+  display: fit-content;
+  position: static;
+  top: 10px;
+  left: 650px;
+
 }
 
-.music-button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s;
+.sign-in-button {
+  background: transparent;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  border: rgb(237, 237, 237) 2px solid;
+}
+.sign-in-button:hover {
+  background: linear-gradient(135deg, #a955f783, #8a5cf6b4);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(139, 92, 246, 0.4);
+}
+
+.sign-in-button:hover::before {
+  left: 100%;
+}
+
+.sign-in-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(139, 92, 246, 0.4);
+}
+
+.music-button {
+  background: linear-gradient(135deg, #080413, #0b0313);
+  border: none;
+  position: sticky;
+  transition: all 0.3s ease;
+  display: inline-block;
+  height: fit-content;
+  width: fit-content;
+
+
 }
 
 .music-button:hover::before {
@@ -184,6 +214,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: 200% 200%;
+  font-size: xx-large;
   animation: gradientShift 3s ease-in-out infinite;
 }
 
@@ -220,18 +251,12 @@
 }
 
 /* Table Enhancements */
-.music-table {
-  background: rgba(15, 23, 42, 0.6);
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid rgba(139, 92, 246, 0.2);
-}
+
 
 .music-table th {
   background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(168, 85, 247, 0.2));
-  color: #a855f7;
-  font-weight: 600;
+  color: #ffffff;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   font-size: 0.875rem;
@@ -291,31 +316,45 @@
 
 /* Tabs Enhancement */
 .music-tabs {
-  background: rgba(15, 23, 42, 0.4);
+  display: inline-block ;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  width: fit-content;
+  height: fit-content;
+  background: rgba(7, 14, 29, 0.773);
   border-radius: 12px;
-  padding: 50px;
-  border: 5px solid rgba(139, 92, 246, 0.2);
+  padding: 4px;
+  border: 1px solid rgba(139, 92, 246, 0.2);
 }
+
 
 .music-tab-trigger {
   background: transparent;
-  color: rgb(241, 241, 241);
-  transition: all 0.3s ease;
+  color: rgb(138, 92, 246);
+  transition: all 0.2s ease;
   border-radius: 8px;
-  font-weight: 700;
-  font-size: 25;
+  font-weight: 1000;
   font-family: 'roboto', sans-serif;
-  padding-left: 2%;
-  padding-right: 2%;
-  position: relative;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 0.875rem;
+  box-shadow: 0 2px 4px rgba(139, 92, 246, 0.1);
+
 }
 
 .music-tab-trigger[data-state="active"] {
   background: linear-gradient(135deg, #8b5cf6, #a855f7);
   color: white;
   box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+  border: #6366f1 3px solid;
 }
 
+.music-tab-trigger:hover {
+  background: rgba(139, 92, 246, 0.1);
+  color: #5b2fc2;
+  box-shadow: 0 2px 4px rgba(139, 92, 246, 0.2);
+}
 /* Loading Animation */
 .music-loading {
   display: inline-block;

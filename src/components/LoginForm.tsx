@@ -78,10 +78,10 @@ export default function LoginForm() {
               Studio Management Platform🎸
               
             </CardTitle>
-            <p className="text--200 text-lg font-medium">
+            <p className="text-200 text-lg font-medium">
               {isRegistering ? 'Create Your Account' : 'Welcome Back'}
             </p>
-            <div className="rhythm-pattern w-20 h-1 mx-auto mt-3"></div>
+            <div className="rhythm-pattern w-full h-10 mx-auto mt-3"></div>
           </CardHeader>
           
           <CardContent className="pt-6">
@@ -150,7 +150,8 @@ export default function LoginForm() {
               
               <Button 
                 type="submit" 
-                className="music-button w-full h-12 text-white font-semibold text-lg rounded-lg"
+                className="sign-in-button w-full h-12 text-white font-semibold text-lg rounded-lg"
+                
               >
                 <span className="relative z-10">
                   {isRegistering ? 'Sign in' : `${roleOptions.find(r => r.value === selectedRole)?.icon} Sign In as ${roleOptions.find(r => r.value === selectedRole)?.label}`}

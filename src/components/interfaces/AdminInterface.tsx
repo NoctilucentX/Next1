@@ -50,23 +50,35 @@ export default function AdminInterface() {
       
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Header */}
+        
         <div className="flex items-center mb-8">
-          <div className="w-12 h-12 rounded-full bg-gradient-to-br from-gradient-500 to-gradient-600 flex items-center justify-center mr-4">
-            <span className="text-2xl"></span>
+
+          <div className="logo-image w-20 h-20 rounded-full flex items-center justify-center">
+            <img 
+                src="/logo.png" 
+                alt="Sernan's Music Clinic Logo" 
+                className="w-full h-full object-contain rounded-full"
+                onError={(e) => {
+                  console.error('Logo failed to load');
+                  e.currentTarget.style.display = 'none';
+                }}
+              />
           </div>
           <div>
-            <h1 className="text-4xl font-bold music-text-gradient">Administrator Dashboard</h1>
-            <p className="text-purple-200 text-lg"><i>System management</i></p>
+            <h1 className="text-4xl font-bold music-text-gradient">Studio Management Platform</h1>
+            <p className="text-purple-200 text-lg"><i>Sernan's Music Clinic</i></p>
           </div>
         </div>
         
         <Tabs defaultValue="students" className="space-y-6">
-          <TabsList className="music-tabs">
+  <TabsList className="music-tabs ">
+            <div className=" items-center">
             <TabsTrigger value="students" className="music-tab-trigger" > STUDENTS</TabsTrigger>
             <TabsTrigger value="instructors" className="music-tab-trigger">INSTRUCTORS</TabsTrigger>
             <TabsTrigger value="scheduling" className="music-tab-trigger">SCHEDULE</TabsTrigger>
             <TabsTrigger value="resources" className="music-tab-trigger">RESOURCES</TabsTrigger>
             <TabsTrigger value="payments" className="music-tab-trigger">PAYMENT</TabsTrigger>
+            </div>
           </TabsList>
 
           <TabsContent value="students">
@@ -78,7 +90,7 @@ export default function AdminInterface() {
                 </div>
                 <Dialog>
                   <DialogTrigger asChild>
-                    <Button className="music-button"> Add Student</Button>
+                    <Button className=" music-button text-white"> Add Student</Button>
                   </DialogTrigger>
                   <DialogContent className="music-card border-purple-500/30">
                     <DialogHeader>
@@ -104,8 +116,8 @@ export default function AdminInterface() {
                         onChange={(e) => setNewStudent({...newStudent, instrument: e.target.value})}
                         className="music-input text-white"
                       />
-                      <Button onClick={addStudent} className="music-button w-full">
-                        🎵 Add Student
+                      <Button onClick={addStudent} className="music-button text-white w-full">
+                         Add Student
                       </Button>
                     </div>
                   </DialogContent>
@@ -150,12 +162,12 @@ export default function AdminInterface() {
             <Card className="music-card border-0 shadow-2xl">
               <CardHeader className="flex flex-row items-center justify-between">
                 <div className="flex items-center space-x-3">
-                  <span className="text-2xl">👨‍🏫</span>
+                  <span className="text-2xl"></span>
                   <CardTitle className="text-2xl text-white">Instructor Profiles</CardTitle>
                 </div>
                 <Dialog>
                   <DialogTrigger asChild>
-                    <Button className="music-button">✨ Add Instructor</Button>
+                    <Button className="music-button text-white">Add Instructor</Button>
                   </DialogTrigger>
                   <DialogContent className="music-card border-purple-500/30">
                     <DialogHeader>
@@ -274,7 +286,7 @@ export default function AdminInterface() {
             <Card className="music-card border-0 shadow-2xl">
               <CardHeader>
                 <div className="flex items-center space-x-3">
-                  <span className="text-2xl">🏠</span>
+                  <span className="text-2xl"></span>
                   <CardTitle className="text-2xl text-white">Resource Availability Management</CardTitle>
                 </div>
               </CardHeader>
@@ -312,7 +324,7 @@ export default function AdminInterface() {
                   
                   <div>
                     <h3 className="text-xl font-semibold text-white mb-4 flex items-center">
-                      <span className="mr-2">🎼</span>
+                      <span className="mr-2">🎸</span>
                       Instruments
                     </h3>
                     <div className="space-y-3">
@@ -358,7 +370,7 @@ export default function AdminInterface() {
                     <CardContent className="p-6 text-center">
                       <div className="text-3xl mb-2">💵</div>
                       <h3 className="font-semibold text-lg text-white">Monthly Revenue</h3>
-                      <p className="text-3xl font-bold text-green-400">$12,500</p>
+                      <p className="text-3xl font-bold text-green-400">₱21400</p>
                       <p className="text-sm text-purple-200">+15% from last month</p>
                     </CardContent>
                   </Card>
@@ -366,7 +378,7 @@ export default function AdminInterface() {
                     <CardContent className="p-6 text-center">
                       <div className="text-3xl mb-2">⚠️</div>
                       <h3 className="font-semibold text-lg text-white">Outstanding</h3>
-                      <p className="text-3xl font-bold text-red-400">$2,300</p>
+                      <p className="text-3xl font-bold text-red-400">0</p>
                       <p className="text-sm text-purple-200">3 overdue accounts</p>
                     </CardContent>
                   </Card>
@@ -380,7 +392,7 @@ export default function AdminInterface() {
                   </Card>
                 </div>
                 <div className="space-y-4">
-                  <Button className="music-button">📊 Generate Monthly Report</Button>
+                  <Button className="music-button text-white">📊 Generate Monthly Report</Button>
                   <Button variant="outline" className="ml-4 border-purple-500/50 text-purple-200 hover:text-white">
                     📤 Export Payment Data
                   </Button>

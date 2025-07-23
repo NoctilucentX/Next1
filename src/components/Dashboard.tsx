@@ -50,6 +50,7 @@ export default function Dashboard() {
                     <p className="text-2xl font-bold text-white-500 ">Welcome back,</p>
                     <p className="text-white-800 font-semibold">{user?.email}</p>
                   </div>
+              
                   <Button 
                     variant="outline" 
                      onClick={logout}
@@ -208,7 +209,7 @@ export default function Dashboard() {
   return (
     <div>
       {selectedRole && (
-        <div className="sticky top-0 z-50 p-4 bg- border-b border--0 backdrop-blur-md">
+        <div className="sticky top-0 z-50 p-4 bg-purple backdrop-blur-md">
           <Button 
             variant="ghost" 
             onClick={() => setSelectedRole(null)}
@@ -216,6 +217,32 @@ export default function Dashboard() {
           >
             ← Back to Dashboard
           </Button>
+
+          
+          <div className="flex items-center gap-4">
+                  <div className="text-right">
+                    <p className="text-2xl font-bold text-white-500 ">Welcome back,</p>
+                    <p className="text-white-800 font-semibold">{user?.email}</p>
+                  </div>
+      
+                  <div className="flex items-center justify-end w-full">
+                  <Button
+                  variant="outline"
+                  onClick={logout}
+                  className="w-32 h-10 px-4 py-2 text-sm font-semibold
+                   border-white-500 text-purple-600
+                    hover:bg-purple-50 hover:text-purple-700"
+                  >
+                  Logout
+                  </Button>
+
+                  <div className="text-right">
+                  <p className="text-2xl font-bold text-white-500"></p>
+                </div>
+            </div>
+
+
+                </div>
         </div>
       )}
       {renderInterface()}
